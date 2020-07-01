@@ -30,17 +30,8 @@ class CapBInput extends React.Component {
     }
 
     handleEnterKeyDown(event) {
-        // const wordListCopy = this.state.wordList.slice();
-        // const alphabet = new Set("abcdefghijklmnopqrstuvwxyz".split(""))
 
         if (event.key === "Enter") {
-            // const currentWord = this.state.inputField
-            // const charArray = currentWord.split("")
-
-            // if ( currentWord.length !== 0 || charArray.every((char) => alphabet.has(char))) {
-            //     wordListCopy.push(this.state.inputField);
-            //     this.setState({ wordList: wordListCopy, inputField: "" })
-            // } 
             this.submit(event);
         } 
     }
