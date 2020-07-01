@@ -17,7 +17,6 @@ class CapBInput extends React.Component {
     handleInput(event) {
         let str = event.currentTarget.value.split("");
 
-        // console.log(str)
         for (let i = 0; i < event.currentTarget.value.length; i++) {
 
             if (str[i] === 'b') {
