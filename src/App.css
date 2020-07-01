@@ -2,37 +2,65 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.inputWordListContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  /* margin-top: 10%; */
+}
+
+.titleContainer {
+  width: 100%;
+  background-image: linear-gradient(skyblue, lightblue);
+  text-align: center;
+}
+
+.title {
+  margin: 50px 0px;
+  width: 100%;
   color: white;
+  font-size: 100px;
+  -webkit-text-stroke: 2px black;
 }
 
-.App-link {
-  color: #61dafb;
+.inputBox {
+  width: 40%;
+  height: 50px;
+  border: 3px solid gray;
+  border-radius: 50px;
+  font-size: 25px;
+  padding: 5px 20px 5px 20px;
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputBox:hover {
+  box-shadow: 4px 4px 1px grey;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  margin: 50px 0px;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.clearBtn {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  background-image: linear-gradient(skyblue, lightblue);
+  cursor: pointer;
+  outline: none;
+  color: black;
+}
+
+.clearBtn:hover {
+  box-shadow: 4px 4px 1px grey;
 }

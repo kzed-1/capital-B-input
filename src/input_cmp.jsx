@@ -1,0 +1,79 @@
+import React from 'react';
+import Logo from './android-chrome-512x512.png'
+
+class CapBInput extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            inputField: "",
+            wordList: []
+        }
+
+        this.handleInput = this.handleInput.bind(this)
+        this.handleEnterKeyDown = this.handleEnterKeyDown.bind(this)
+        this.clearEntries = this.clearEntries.bind(this)
+    }
+
+    handleInput(event) {
+        let str = event.currentTarget.value.split("");
+
+        // console.log(str)
+        for (let i = 0; i < event.currentTarget.value.length; i++) {
+
+            if (str[i] === 'b') {
+                str[i] = str[i].toUpperCase()
+            }
+        }
+
+        this.setState({ inputField: str.join("") })
+    }
+
+    handleEnterKeyDown(event) {
+        const wordListCopy = this.state.wordList.slice();
+        const alphabet = new Set("abcdefghijklmnopqrstuvwxyz".split(""))
+
+        if (event.key === "Enter") {
+            const currentWord = this.state.inputField
+            const charArray = currentWord.split("")
+
+            if ( currentWord.length !== 0 || charArray.every((char) => alphabet.has(char))) {
+                wordListCopy.push(this.state.inputField);
+                this.setState({ wordList: wordListCopy, inputField: "" })
+            } 
+        }
+    }
+
+    clearEntries() {
+        this.setState({ wordList: [] })
+    }
+
+    render() {
+
+        const list = this.state.wordList.map((word, index) => (
+            <li key={index} >{word}</li>
+        ))
+
+        return (
+            <div className="inputWordListContainer">
+                <div className="titleContainer">
+                    <h1 className="title" > Capital B </h1>
+                </div>
+                <img className="logo" src={Logo} alt=""/>
+                <input type="text"
+                    className="inputBox"
+                    value={this.state.inputField}
+                    onChange={this.handleInput}
+                    onKeyDown={this.handleEnterKeyDown}
+                    placeholder="Type Here..." />
+                <button  
+                    className="clearBtn"
+                    onClick={this.clearEntries}> Clear Entries </button>
+                <ul className="list">
+                    {list}
+                </ul>
+            </div>
+        )
+    }
+}
+
+export default CapBInput;
