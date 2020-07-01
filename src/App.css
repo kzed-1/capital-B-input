@@ -11,7 +11,7 @@
 
 .titleContainer {
   width: 100%;
-  background-image: linear-gradient(skyblue, lightblue);
+  background-color: #dddddd;
   text-align: center;
 }
 
@@ -48,18 +48,42 @@
   padding: 0px;
 }
 
-.clearBtn {
+.btnContainer {
+  display: block;
+  margin-block-start: auto 0; 
+
+}
+
+.btn {
   padding: 10px;
   font-size: 20px;
   border: 1px solid gray;
   border-radius: 20px;
-  background-image: linear-gradient(skyblue, lightblue);
+  background-color: pink;
   cursor: pointer;
   outline: none;
   color: black;
   margin: 20px 10px;
+  width: 150px
 }
 
-.clearBtn:hover {
+.btn:hover {
   box-shadow: 4px 4px 1px grey;
 }
+
+.submitBtn {
+  /* background-image: linear-gradient(green, lightgreen); */
+  background-color: lightgreen;
+}
+
+@media only screen and (max-width: 510px) {
+
+  .btnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+

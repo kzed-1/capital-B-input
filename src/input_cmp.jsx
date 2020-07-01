@@ -13,6 +13,7 @@ class CapBInput extends React.Component {
         this.handleEnterKeyDown = this.handleEnterKeyDown.bind(this)
         this.clearEntries = this.clearEntries.bind(this)
         this.clearInputField = this.clearInputField.bind(this)
+        this.submit = this.submit.bind(this)
     }
 
     handleInput(event) {
@@ -29,18 +30,19 @@ class CapBInput extends React.Component {
     }
 
     handleEnterKeyDown(event) {
-        const wordListCopy = this.state.wordList.slice();
-        const alphabet = new Set("abcdefghijklmnopqrstuvwxyz".split(""))
+        // const wordListCopy = this.state.wordList.slice();
+        // const alphabet = new Set("abcdefghijklmnopqrstuvwxyz".split(""))
 
         if (event.key === "Enter") {
-            const currentWord = this.state.inputField
-            const charArray = currentWord.split("")
+            // const currentWord = this.state.inputField
+            // const charArray = currentWord.split("")
 
-            if ( currentWord.length !== 0 || charArray.every((char) => alphabet.has(char))) {
-                wordListCopy.push(this.state.inputField);
-                this.setState({ wordList: wordListCopy, inputField: "" })
-            } 
-        }
+            // if ( currentWord.length !== 0 || charArray.every((char) => alphabet.has(char))) {
+            //     wordListCopy.push(this.state.inputField);
+            //     this.setState({ wordList: wordListCopy, inputField: "" })
+            // } 
+            this.submit(event);
+        } 
     }
 
     clearEntries() {
@@ -49,6 +51,21 @@ class CapBInput extends React.Component {
 
     clearInputField() {
         this.setState({ inputField: "" })
+    }
+
+    submit(event) {
+        const wordListCopy = this.state.wordList.slice();
+        const alphabet = new Set("abcdefghijklmnopqrstuvwxyz".split(""))
+        
+        const currentWord = this.state.inputField
+        const charArray = currentWord.split("")
+
+        if (currentWord.length !== 0 || charArray.every((char) => alphabet.has(char))) {
+            wordListCopy.push(this.state.inputField);
+            this.setState({ wordList: wordListCopy, inputField: "" })
+        }
+
+        event.preventDefault() 
     }
 
     render() {
@@ -69,13 +86,16 @@ class CapBInput extends React.Component {
                     onChange={this.handleInput}
                     onKeyDown={this.handleEnterKeyDown}
                     placeholder="Type Here..." />
-                <div>
+                <div className="btnContainer">
                     <button  
-                        className="clearBtn"
-                        onClick={this.clearEntries}> Clear Entries </button>
-                    <button  
-                        className="clearBtn"
+                        className="clearBtn btn"
                         onClick={this.clearInputField}> Clear Input </button>
+                    <button
+                        className="submitBtn btn"
+                        onClick={this.submit}> Submit </button>
+                    <button
+                        className="clearBtn btn"
+                        onClick={this.clearEntries}> Clear Entries </button>
                 </div>
                 <ul className="list">
                     {list}
