@@ -12,6 +12,7 @@ class CapBInput extends React.Component {
         this.handleInput = this.handleInput.bind(this)
         this.handleEnterKeyDown = this.handleEnterKeyDown.bind(this)
         this.clearEntries = this.clearEntries.bind(this)
+        this.clearInputField = this.clearInputField.bind(this)
     }
 
     handleInput(event) {
@@ -46,6 +47,10 @@ class CapBInput extends React.Component {
         this.setState({ wordList: [] })
     }
 
+    clearInputField() {
+        this.setState({ inputField: "" })
+    }
+
     render() {
 
         const list = this.state.wordList.map((word, index) => (
@@ -64,9 +69,14 @@ class CapBInput extends React.Component {
                     onChange={this.handleInput}
                     onKeyDown={this.handleEnterKeyDown}
                     placeholder="Type Here..." />
-                <button  
-                    className="clearBtn"
-                    onClick={this.clearEntries}> Clear Entries </button>
+                <div>
+                    <button  
+                        className="clearBtn"
+                        onClick={this.clearEntries}> Clear Entries </button>
+                    <button  
+                        className="clearBtn"
+                        onClick={this.clearInputField}> Clear Input </button>
+                </div>
                 <ul className="list">
                     {list}
                 </ul>

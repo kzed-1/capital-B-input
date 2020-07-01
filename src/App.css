@@ -49,7 +49,6 @@
 }
 
 .clearBtn {
-  margin-top: 20px;
   padding: 10px;
   font-size: 20px;
   border: 1px solid gray;
@@ -58,6 +57,7 @@
   cursor: pointer;
   outline: none;
   color: black;
+  margin: 20px 10px;
 }
 
 .clearBtn:hover {
